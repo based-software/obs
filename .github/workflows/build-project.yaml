@@ -175,12 +175,18 @@ jobs:
           export OBS_LEGACY_PLUGINS_PATH="${APPDIR}/usr/local/lib/x86_64-linux-gnu/obs-modules/core"
           export OBS_LEGACY_PLUGINS_DATA_PATH="${APPDIR}/usr/local/share/obs/obs-modules/core"
           export QT_PLUGIN_PATH="${APPDIR}/usr/plugins"
-          export LD_LIBRARY_PATH="${APPDIR}/usr/lib${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}"
+          export LD_LIBRARY_PATH="${APPDIR}/usr/lib:${APPDIR}/usr/local/lib/x86_64-linux-gnu${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}"
           exec "${APPDIR}/usr/local/bin/obs" "$@"
           APPRUN
           chmod +x obs-apprun
 
           : Bundle dependencies and produce AppImage 🗜️
+          : Deploy dependencies of runtime-dlopened modules as well 🔗
+          deploy_args=()
+          while IFS= read -r module_file; do
+            deploy_args+=(--library "${module_file}")
+          done < <(find AppDir -type f -name '*.so')
+
           ./linuxdeploy --appimage-extract-and-run \
             --appdir AppDir \
             --executable "${obs_bin}" \
@@ -188,7 +194,8 @@ jobs:
             --icon-file "${icon_file}" \
             --custom-apprun obs-apprun \
             --plugin qt \
-            --output appimage
+            --output appimage \
+            "${deploy_args[@]}"
 
           mv ./*.AppImage "${GITHUB_WORKSPACE}/build_ubuntu/obs-studio-${COMMIT_HASH}-x86_64.AppImage"
 
