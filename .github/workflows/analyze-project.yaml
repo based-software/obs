@@ -14,9 +14,10 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Build OBS Studio 🧱
-        uses: ./.github/actions/build-obs
+        uses: $/.github/actions/build-obs
         env:
           TWITCH_CLIENTID: ${{ secrets.TWITCH_CLIENT_ID }}
           TWITCH_HASH: ${{ secrets.TWITCH_HASH }}
@@ -32,7 +33,7 @@ jobs:
           config: Debug
 
       - name: Run PVS-Studio Analysis
-        uses: ./.github/actions/windows-analysis
+        uses: $/.github/actions/windows-analysis
         with:
           pvsUsername: ${{ secrets.PVS_NAME }}
           pvsKey: ${{ secrets.PVS_KEY }}
@@ -50,6 +51,7 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Set Up Environment 🔧
         id: setup
@@ -78,7 +80,7 @@ jobs:
           print "xcodeCasPath=${xcode_cas_path}" >> $GITHUB_OUTPUT
 
       - name: Set Up Code Signing 🔑
-        uses: ./.github/actions/setup-macos-codesigning
+        uses: $/.github/actions/setup-macos-codesigning
         id: codesign
         with:
           codesignIdentity: ${{ secrets.MACOS_SIGNING_IDENTITY }}

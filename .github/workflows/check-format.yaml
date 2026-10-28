@@ -8,9 +8,10 @@ jobs:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           fetch-depth: 0
+          persist-credentials: false
       - name: clang-format Check 🐉
         id: clang-format
-        uses: ./.github/actions/run-clang-format
+        uses: $/.github/actions/run-clang-format
         with:
           failCondition: error
 
@@ -20,9 +21,10 @@ jobs:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           fetch-depth: 0
+          persist-credentials: false
       - name: swift-format Check 🔥
         id: swift-format
-        uses: ./.github/actions/run-swift-format
+        uses: $/.github/actions/run-swift-format
         with:
           failCondition: error
 
@@ -32,9 +34,10 @@ jobs:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           fetch-depth: 0
+          persist-credentials: false
       - name: gersemi Check 🎛️
         id: gersemi
-        uses: ./.github/actions/run-gersemi
+        uses: $/.github/actions/run-gersemi
         with:
           failCondition: error
 
@@ -44,9 +47,10 @@ jobs:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           fetch-depth: 0
+          persist-credentials: false
       - name: Flatpak Manifest Check 📦
         id: flatpak-check
-        uses: ./.github/actions/flatpak-manifest-validator
+        uses: $/.github/actions/flatpak-manifest-validator
         with:
           failCondition: error
 
@@ -56,8 +60,9 @@ jobs:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           fetch-depth: 0
+          persist-credentials: false
       - name: Qt XML Check 🖼️
         id: qt-xml-check
-        uses: ./.github/actions/qt-xml-validator
+        uses: $/.github/actions/qt-xml-validator
         with:
           failCondition: error

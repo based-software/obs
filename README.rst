@@ -1,40 +1,29 @@
-obs - OBS Studio fork <https://github.com/based-software/obs>
-=============================================================
+obs <https://github.com/based-software/obs>
+===========================================
 
 .. image:: https://github.com/based-software/obs/actions/workflows/push.yaml/badge.svg?branch=master
-   :alt: OBS Studio Build Status - GitHub Actions
+   :alt: Build Status - GitHub Actions
    :target: https://github.com/based-software/obs/actions/workflows/push.yaml?query=branch%3Amaster
 
-.. image:: https://badges.crowdin.net/obs-studio/localized.svg
-   :alt: OBS Studio Translation Project Progress
-   :target: https://crowdin.com/project/obs-studio
+Hard fork of `OBS Studio <https://github.com/obsproject/obs-studio>`_,
+software for capturing, compositing, encoding, recording, and streaming
+video content.
 
-.. image:: https://img.shields.io/discord/348973006581923840.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2
-   :alt: OBS Studio Discord Server
-   :target: https://obsproject.com/discord
-
-What is OBS Studio?
--------------------
-
-OBS Studio is software designed for capturing, compositing, encoding,
-recording, and streaming video content, efficiently.
-
-It's distributed under the GNU General Public License v2 (or any later
+Distributed under the GNU General Public License v2 (or any later
 version) - see the accompanying COPYING file for more details.
 
-This repository is a hard fork of
-`obsproject/obs-studio <https://github.com/obsproject/obs-studio>`_.
-Upstream links below still point at the OBS Project where the fork has
-no replacement (website, forums, documentation, Crowdin).
+This fork tracks upstream master and ships without the code of conduct
+or funding solicitation. Package names, plugin APIs, and config paths
+are unchanged: it is a drop-in replacement for OBS Studio.
+
+Download
+--------
+
+Releases are published at
+https://github.com/based-software/obs/releases
 
 Quick Links
 -----------
-
-- Website: https://obsproject.com
-
-- Help/Documentation/Guides: https://github.com/obsproject/obs-studio/wiki
-
-- Forums: https://obsproject.com/forum/
 
 - Build Instructions: https://github.com/obsproject/obs-studio/wiki/Install-Instructions
 
@@ -42,28 +31,17 @@ Quick Links
 
 - Bug Tracker: https://github.com/based-software/obs/issues
 
+- Upstream Website: https://obsproject.com
+
 Contributing
 ------------
 
 - If you wish to contribute code to the project, please make sure to
   read the coding and commit guidelines:
   https://github.com/based-software/obs/blob/master/CONTRIBUTING.md
-  
+
 - Code for the project follows the code style guidelines, located
   here: https://github.com/based-software/obs/blob/master/CODESTYLE.md
-
-- Developer/API documentation can be found here:
-  https://obsproject.com/docs
-
-- If you wish to contribute translations, do not submit pull requests.
-  Instead, please use Crowdin.  For more information read this page:
-  https://obsproject.com/wiki/How-To-Contribute-Translations-For-OBS
-
-- Other ways to contribute are by helping people out with support on
-  our forums or in our community chat.  Please limit support to topics
-  you fully understand -- bad advice is worse than no advice.  When it
-  comes to something that you don't fully know or understand, please
-  defer to the official help or official channels.
 
 
 SAST Tools

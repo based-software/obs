@@ -15,14 +15,13 @@ concurrency:
 jobs:
   check-format:
     name: Format 🔍
-    uses: ./.github/workflows/check-format.yaml
+    uses: $/.github/workflows/check-format.yaml
     permissions:
       contents: read
 
   build-project:
     name: Build 🧱
-    uses: ./.github/workflows/build-project.yaml
-    secrets: inherit
+    uses: $/.github/workflows/build-project.yaml
     permissions:
       contents: read
 
@@ -36,9 +35,10 @@ jobs:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Check for Changed Files ✅
-        uses: ./.github/actions/check-changes
+        uses: $/.github/actions/check-changes
         id: checks
         with:
           baseRef: origin/${{ github.base_ref }}
@@ -46,7 +46,7 @@ jobs:
 
       - name: Check for Invalid Compatibility Data 📉
         if: fromJSON(steps.checks.outputs.hasChangedFiles)
-        uses: ./.github/actions/compatibility-validator
+        uses: $/.github/actions/compatibility-validator
 
   services-validation:
     name: Validate Services 🕵️
@@ -58,9 +58,10 @@ jobs:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Check for Changed Files ✅
-        uses: ./.github/actions/check-changes
+        uses: $/.github/actions/check-changes
         id: checks
         with:
           baseRef: origin/${{ github.base_ref }}
@@ -68,7 +69,7 @@ jobs:
 
       - name: Check Services JSON Schema 📉
         if: fromJSON(steps.checks.outputs.hasChangedFiles)
-        uses: ./.github/actions/services-validator
+        uses: $/.github/actions/services-validator
         with:
           repositorySecret: ${{ secrets.GITHUB_TOKEN }}
           runSchemaChecks: true
@@ -76,19 +77,20 @@ jobs:
 
   update-documentation:
     name: Update Documentation 📖
-    if: github.repository_owner == 'obsproject' && github.base_ref == 'master'
+    if: github.repository_owner == 'based-software' && github.base_ref == 'master'
     runs-on: ubuntu-26.04
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Check for Changed Files ✅
-        uses: ./.github/actions/check-changes
+        uses: $/.github/actions/check-changes
         id: checks
         with:
           baseRef: origin/${{ github.base_ref }}
           checkGlob: docs/sphinx
 
-      - uses: ./.github/actions/generate-docs
+      - uses: $/.github/actions/generate-docs
         if: fromJSON(steps.checks.outputs.hasChangedFiles)
