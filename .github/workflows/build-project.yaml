@@ -150,16 +150,24 @@ jobs:
           fi
           mkdir -p AppDir
           dpkg-deb -x "${deb_file}" AppDir
+          find AppDir -maxdepth 3 -type d | sort | head -20
 
-          : Locate desktop file, icon, and qmake 🔎
-          desktop_file=$(find AppDir/usr/share/applications -name '*.desktop' | head -1)
-          icon_file=$(find AppDir/usr/share/icons AppDir/usr/share/pixmaps -name 'com.obsproject.Studio.png' 2>/dev/null | sort -r | head -1)
+          : Locate desktop file, icon, executable, and qmake 🔎
+          desktop_file=$(find AppDir -name '*.desktop' | head -1)
+          icon_file=$(find AppDir -name 'com.obsproject.Studio.png' | sort -r | head -1)
+          obs_bin=$(find AppDir -type f -name 'obs' -path '*/bin/*' | head -1)
           export QMAKE="$(command -v qmake6 || command -v qmake || find /usr/lib/qt6/bin -name qmake 2>/dev/null | head -1)"
+
+          if [[ -z ${desktop_file} || -z ${icon_file} || -z ${obs_bin} ]]; then
+            echo "::error::AppDir missing desktop file, icon, or obs binary"
+            find AppDir -type f | head -50
+            exit 1
+          fi
 
           : Bundle dependencies and produce AppImage 🗜️
           ./linuxdeploy --appimage-extract-and-run \
             --appdir AppDir \
-            --executable AppDir/usr/bin/obs \
+            --executable "${obs_bin}" \
             --desktop-file "${desktop_file}" \
             --icon-file "${icon_file}" \
             --plugin qt \
