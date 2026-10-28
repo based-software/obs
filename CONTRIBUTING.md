@@ -74,7 +74,7 @@ Many of these ideas match the ideas outlined in https://chris.beams.io/git-commi
 
 #### Code Style
 
-All code contributions to the project need to follow code style guidelines appropriate to the languages used by the changed files. For C and C++ the project has chosen to adopt well-established code style guidelines as its baseline with specific exceptions and changes outlined in a [separate document](https://github.com/obsproject/obs-studio/blob/master/CODESTYLE.md).
+All code contributions to the project need to follow code style guidelines appropriate to the languages used by the changed files. For C and C++ the project has chosen to adopt well-established code style guidelines as its baseline with specific exceptions and changes outlined in a [separate document](https://github.com/based-software/obs/blob/master/CODESTYLE.md).
 
 The baseline rules for the common languages used by the project are:
 

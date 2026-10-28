@@ -1103,7 +1103,7 @@ EXPORT bool obs_source_removed(const obs_source_t *source);
 
 /** The 'hidden' flag is not the same as a sceneitem's visibility. It is a
   * property the determines if it can be found through searches. **/
-/** TODO: Remove both functions and temp_removed in 34.0 (https://github.com/obsproject/obs-studio/issues/13768) */
+/** TODO: Remove both functions and temp_removed in 34.0 (https://github.com/based-software/obs/issues/13768) */
 
 /** Simply sets a 'hidden' flag when the source is still alive but shouldn't be found */
 OBS_DEPRECATED EXPORT void obs_source_set_hidden(obs_source_t *source, bool hidden);

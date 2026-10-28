@@ -1038,4 +1038,4 @@ Functions used by outputs
 
 .. ---------------------------------------------------------------------------
 
-.. _libobs/obs-output.h: https://github.com/obsproject/obs-studio/blob/master/libobs/obs-output.h
+.. _libobs/obs-output.h: https://github.com/based-software/obs/blob/master/libobs/obs-output.h

@@ -128,7 +128,7 @@ void OBSAbout::ShowAbout()
 void OBSAbout::ShowAuthors()
 {
 	std::string path;
-	QString error = QTStr("About.Error").arg("https://github.com/obsproject/obs-studio/blob/master/AUTHORS");
+	QString error = QTStr("About.Error").arg("https://github.com/based-software/obs/blob/master/AUTHORS");
 
 #ifdef __APPLE__
 	if (!GetDataFilePath("AUTHORS", path)) {
@@ -154,7 +154,7 @@ void OBSAbout::ShowAuthors()
 void OBSAbout::ShowLicense()
 {
 	std::string path;
-	QString error = QTStr("About.Error").arg("https://github.com/obsproject/obs-studio/blob/master/COPYING");
+	QString error = QTStr("About.Error").arg("https://github.com/based-software/obs/blob/master/COPYING");
 
 	if (!GetDataFilePath("license/gplv2.txt", path)) {
 		ui->textBrowser->setPlainText(error);

@@ -101,7 +101,7 @@ InstalledPluginRow::InstalledPluginRow(QWidget *parent, const PluginManagerWindo
 			legacyNotice->setLayout(new QHBoxLayout{});
 			legacyNotice->layout()->setContentsMargins(0, 0, 0, 0);
 
-			// TODO: https://github.com/obsproject/obs-studio/issues/14029
+			// TODO: https://github.com/based-software/obs/issues/14029
 			// Re-enable this icon before the major version where we remove legacy plugin paths.
 			//auto warningIcon = new QLabel{moduleText};
 			//warningIcon->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);

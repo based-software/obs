@@ -89,7 +89,7 @@ void PluginManager::loadAllPlugins(bool usePortableMode)
 
 	if (!coreModuleLoadSuccess) {
 		loadState_ = State::Failure;
-		//TODO: Replace with structured exception type - https://github.com/obsproject/obs-studio/issues/13394
+		//TODO: Replace with structured exception type - https://github.com/based-software/obs/issues/13394
 		throw "Failed to load core OBS modules. OBS cannot run without these modules. Please try reinstalling OBS.";
 	} else {
 		if (loadMode_ == Mode::Full) {

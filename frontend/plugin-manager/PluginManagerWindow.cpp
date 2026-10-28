@@ -269,7 +269,7 @@ void PluginManagerWindow::setupInstalledPage(std::vector<std::string> failedModu
 
 	// Qt is weird about how styling from dynamic properties affects certain widgets such as scroll areas.
 	// This forces a recalculation after the items have all been added.
-	// TODO: https://github.com/obsproject/obs-studio/issues/13920
+	// TODO: https://github.com/based-software/obs/issues/13920
 	// Rip this out after #13920 has been done.
 	{
 		ui->modulesList->style()->polish(ui->modulesList);

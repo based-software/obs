@@ -148,7 +148,7 @@ static blocked_module_t blocked_modules[] = {
 	{L"\\t_prevent64.dll", 0, 0, TS_IGNORE},
 
 	// Bandicam, doesn't unhook cleanly and freezes preview
-	// Reference: https://github.com/obsproject/obs-studio/issues/8552
+	// Reference: https://github.com/based-software/obs/issues/8552
 	{L"\\bdcam64.dll", 0, 0, TS_IGNORE},
 
 	// "Citrix ICAService" that crashes during DShow enumeration
@@ -173,18 +173,18 @@ static blocked_module_t blocked_modules[] = {
 	{L"\\live3dvirtualcam\\lib64.dll", 0, 0, TS_IGNORE},
 
 	// VirtualMotionCapture capture filter < 2022-12-18 without above fix
-	// Reference: https://github.com/obsproject/obs-studio/issues/8552
+	// Reference: https://github.com/based-software/obs/issues/8552
 	{L"\\vmc_camerafilter64bit.dll", 0, 1671349891, TS_LESS_THAN},
 
 	// HolisticMotionCapture capture filter, not yet patched. Blocking
 	// all previous versions in case an update is released.
-	// Reference: https://github.com/obsproject/obs-studio/issues/8552
+	// Reference: https://github.com/based-software/obs/issues/8552
 	{L"\\holisticmotioncapturefilter64bit.dll", 0, 1680044549, TS_LESS_THAN},
 
 	// Elgato Stream Deck plugin < 2024-02-01
 	// Blocking all previous versions because they have undefined behavior
 	// that results in crashes.
-	// Reference: https://github.com/obsproject/obs-studio/issues/10245
+	// Reference: https://github.com/based-software/obs/issues/10245
 	{L"\\streamdeckplugin.dll", 0, 1706745600, TS_LESS_THAN},
 
 	// TikTok Live Studio Virtual Camera, causes freezing and other issues during enumeration
@@ -194,7 +194,7 @@ static blocked_module_t blocked_modules[] = {
 
 	// Twitch Soundtrack plugin, causes issues with VOD track.
 	// The app is defunct as of July 2023 and the plugin no longer has a purpose.
-	// Reference: https://github.com/obsproject/obs-studio/issues/13636
+	// Reference: https://github.com/based-software/obs/issues/13636
 	{L"\\soundtrack-plugin.dll", 0, 0, TS_IGNORE},
 
 	// More Korean banking anti-screenshot "security" software that injects and crashes OBS.

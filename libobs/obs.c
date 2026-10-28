@@ -3114,8 +3114,8 @@ void start_raw_video(video_t *v, const struct video_scale_info *conversion, uint
 	struct obs_core_video_mix *video = get_mix_for_video(v);
 
 	// TODO: Make affected outputs use views/canvasses, and revert this later.
-	// https://github.com/obsproject/obs-studio/pull/12379
-	// https://github.com/obsproject/obs-studio/issues/12366
+	// https://github.com/based-software/obs/pull/12379
+	// https://github.com/based-software/obs/issues/12366
 	if (video_output_connect2(v, conversion, frame_rate_divisor, callback, param) && video)
 		os_atomic_inc_long(&video->raw_active);
 }
@@ -3125,8 +3125,8 @@ void stop_raw_video(video_t *v, void (*callback)(void *param, struct video_data 
 	struct obs_core_video_mix *video = get_mix_for_video(v);
 
 	// TODO: Make affected outputs use views/canvasses, and revert this later.
-	// https://github.com/obsproject/obs-studio/pull/12379
-	// https://github.com/obsproject/obs-studio/issues/12366
+	// https://github.com/based-software/obs/pull/12379
+	// https://github.com/based-software/obs/issues/12366
 	if (video_output_disconnect2(v, callback, param) && video)
 		os_atomic_dec_long(&video->raw_active);
 }

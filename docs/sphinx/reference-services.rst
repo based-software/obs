@@ -373,4 +373,4 @@ General Service Functions
 
 .. ---------------------------------------------------------------------------
 
-.. _libobs/obs-service.h: https://github.com/obsproject/obs-studio/blob/master/libobs/obs-service.h
+.. _libobs/obs-service.h: https://github.com/based-software/obs/blob/master/libobs/obs-service.h
