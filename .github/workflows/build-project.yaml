@@ -167,12 +167,26 @@ jobs:
             exit 1
           fi
 
+          : Write custom AppRun so obs finds usr/local data paths 📝
+          cat > obs-apprun <<'APPRUN'
+          #!/bin/sh
+          APPDIR="$(dirname "$(readlink -f "${0}")")"
+          export OBS_DATA_PATH="${APPDIR}/usr/local/share/obs/obs-studio/"
+          export OBS_LEGACY_PLUGINS_PATH="${APPDIR}/usr/local/lib/x86_64-linux-gnu/obs-modules/core"
+          export OBS_LEGACY_PLUGINS_DATA_PATH="${APPDIR}/usr/local/share/obs/obs-modules/core"
+          export QT_PLUGIN_PATH="${APPDIR}/usr/plugins"
+          export LD_LIBRARY_PATH="${APPDIR}/usr/lib${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}"
+          exec "${APPDIR}/usr/local/bin/obs" "$@"
+          APPRUN
+          chmod +x obs-apprun
+
           : Bundle dependencies and produce AppImage 🗜️
           ./linuxdeploy --appimage-extract-and-run \
             --appdir AppDir \
             --executable "${obs_bin}" \
             --desktop-file "${desktop_file}" \
             --icon-file "${icon_file}" \
+            --custom-apprun obs-apprun \
             --plugin qt \
             --output appimage
 
