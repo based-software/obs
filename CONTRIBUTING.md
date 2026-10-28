@@ -24,8 +24,6 @@ The canonical language used by the project is “American English”, which main
 Appropriate templates are presented to the user when opening a new issue report or pull request on GitHub which are required to be fully filled out to be taken into consideration by the project.
 The template might require checking off items that might not be applicable e.g., the requirement to have the code properly formatted does not apply when the contribution has not changed any source code. **It is permissible and preferred to tick the box regardless**.
 
-Authors of contributions to the OBS Project are expected to abide by the “OBS Project Code of Conduct” available at https://github.com/obsproject/obs-studio/blob/master/COC.rst.
-
 ## Pull Request Review Guidelines
 
 In general reviews of pull requests are not limited to project members and can be undertaken by contributors and other GitHub users. Project members commonly coordinate reviews of pull requests at their own discretion in line with project needs and available bandwidth.
